@@ -1,0 +1,39 @@
+<!--
+######################################################
+# LongPH - Oct 20th, 2011
+#    create file
+######################################################
+-->
+<p>
+  <b>Name:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%=h @product.image_url %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @product.price %>
+</p>
+
+<p>
+  <b>Special price:</b>
+  <%=h @product.special_price %>
+</p>
+
+<p>
+  <b>Member price:</b>
+  <%=h @product.member_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

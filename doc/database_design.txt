@@ -1,0 +1,57 @@
+######################################################
+# LongPH - Oct 20th, 2011
+#    create file
+######################################################
+
+User
+  -- has many :orders
+  username: string, unique
+  password: string
+  first_name: string
+  last_name: string
+  address: text
+  city: string
+  state: string
+  country: string
+  membership: string
+
+Product:
+  -- belongs to :category
+  category_id: number
+  name: string, unique
+  description: text
+  price: number
+  special_price: number
+  member_price: number
+  image_url: string
+  status: string
+  quantity: number
+  
+Category:
+  -- has many :products
+  name: string, unique
+  description: text
+  note: text
+
+Cart: 
+  -- has_many :items
+  -- belongs to :order
+  
+Item:
+  -- belongs to :cart
+  product_id: number
+  cart_id: number
+  price: number
+  quantity: number
+  total: number
+
+Order:
+  -- belongs to :user
+  -- has one :cart
+  user_id: number
+  cart_id: number
+  receiver: string
+  address: text
+  status: string
+  payment: string
+  credit_card: string

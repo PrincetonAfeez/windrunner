@@ -1,0 +1,19 @@
+<!--
+######################################################
+# LongPH - Oct 20th, 2011
+#    create file
+######################################################
+-->
+<%#*<h1>Your Pragmatic Catalog</h1>%>
+<% for product in @products -%>
+  <div class="entry">
+    <%= image_tag product.image_url, :height => '64', :width => '64'%>
+    <h3><%=h product.name %></h3>
+  <%= product.description if !product.description.nil?%>
+    <div class="price-line">
+      <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+      <%= button_to "Add to Cart" %>
+    </div>
+    <%#**+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*%>
+  </div>
+<% end %>

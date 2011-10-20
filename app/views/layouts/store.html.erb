@@ -1,0 +1,38 @@
+<!--
+######################################################
+# LongPH - Oct 20th, 2011
+#    create file
+######################################################
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+  <head>
+    <title>Pragprog Books Online Store</title>
+    <%= stylesheet_link_tag "scaffold" , :media => "all" %>
+  </head>
+  <body id="store">
+    <%# *top section %>
+    <div id="banner">
+      <%= image_tag("logo.png" ) %>
+      <%= @page_title || "Pragmatic Bookshelf" %>
+    </div>
+    <%# *main section %>
+    <div id="columns">
+      <div id="side">
+        <a href="http://localhost:3000/store">Home</a><br />
+        <a href="http://localhost:3000/store">Questions</a><br />
+        <a href="http://localhost:3000/store">News</a><br />
+        <a href="http://localhost:3000/store">Contact</a><br />
+      </div>
+      <div id="main">
+        <%= yield :layout %>
+      </div>
+    </div>
+    <%# *bottom section %>
+    <div id="banner_bottom">
+      <%= image_tag("logo.png" ) %>
+      Current time is <%= Time.now %>
+    </div>
+  </body>
+</html>
