@@ -159,10 +159,13 @@ h1 {
   text-align: center;
 }
 
-#banner img, #banner_bottom img {
+#banner img{
+  float: left;
+  width: 170px;
+}
+#banner_bottom img {
   float: left;
 }
-
 #columns {
   background: #141;
 }

@@ -2,60 +2,64 @@
 # LongPH - Oct 20th, 2011
 #    create file
 ######################################################
-class StoreController < ApplicationController
-  # preprocessor
+class CartItem
+  
+  attr_reader :product, :quantity
   
   ######################################################
-  # -- Output: all valid products to be sold
-  # LongPH - Oct 20th, 2011
-  #    create
-  ######################################################
-  def index
-    @products = Product.find_products_for_sale
-  end
-
-  ######################################################
-  # -- Output: cart saved in sessions
+  # -- Output: created product
   # LongPH - Oct 21st, 2011
   #    create
   ######################################################
-  def find_cart
-    session[:cart] ||= Cart.new
+  def initialize(product)
+    @product = product
+    @quantity = 1
   end
   
   ######################################################
-  # -- Output: cart saved in sessions
+  # -- Output: increase quantity by 1
   # LongPH - Oct 21st, 2011
   #    create
   ######################################################
-  def add_to_cart
-    product = Product.find(params[:id])
-    @cart = find_cart
-    @cart.add_product(product)
-  rescue ActiveRecord::RecordNotFound
-    logger.error("Attempt to access invalid product #{params[:id]}")
-    redirect_to_index("Invalid product")
+  def increment_quantity
+    @quantity += 1
   end
   
   ######################################################
-  # -- Output: empty cart in session
+  # -- Output: name of product
   # LongPH - Oct 21st, 2011
   #    create
   ######################################################
-  def empty_cart
-    session[:cart] = nil
-    redirect_to_index("Your cart is currently empty")
+  def name
+    @product.name
   end
   
-  private
   ######################################################
-  # -- Output: redirect to index page
+  # -- Output: cost of product
   # LongPH - Oct 21st, 2011
   #    create
   ######################################################
-  def redirect_to_index(msg)
-    flash[:notice] = msg
-    redirect_to :action => 'index'
+  def cost
+    @product.cost
+  end
+  
+  ######################################################
+  # -- Output: cost of a product
+  # -- Type: 1 for normal, 2 for sale-off, 3 for member
+  # LongPH - Oct 21st, 2011
+  #    create
+  ######################################################
+  def price(type)
+    if type ==1
+      cost = @product.price * @quantity
+    elsif type == 2
+      cost = @product.special_price * @quantity
+    elsif type == 3
+      cost = @product.member_price * @quantity
+    end
+    @product.cost = cost
+    @product.save
+    cost
   end
   
 end

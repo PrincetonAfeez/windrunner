@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020132232) do
+ActiveRecord::Schema.define(:version => 20111021043644) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "unique"
     t.text     "description"
     t.string   "image_url",     :default => "No image"
+    t.float    "cost",          :default => 0.0
     t.float    "price",         :default => 0.0
     t.float    "special_price", :default => 0.0
     t.float    "member_price",  :default => 0.0
@@ -25,5 +26,15 @@ ActiveRecord::Schema.define(:version => 20111020132232) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
 end

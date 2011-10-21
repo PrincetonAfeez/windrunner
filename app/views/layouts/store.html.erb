@@ -2,6 +2,8 @@
 ######################################################
 # LongPH - Oct 20th, 2011
 #    create file
+# LongPH - Oct 21st, 2011
+#    add errors message
 ######################################################
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -28,7 +30,12 @@
         <%= link_to "Help", help_path %><br />
         <%= link_to "About", about_path %><br />
       </div>
+      
       <div id="main">
+        <% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div>
+        <% end -%>
+          
         <%= yield :layout %>
       </div>
     </div>
