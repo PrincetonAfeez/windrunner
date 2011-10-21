@@ -19,15 +19,15 @@ class CreateProducts < ActiveRecord::Migration
     end
 
     # insert some samples
-    Product.create(:name => "Laptop", :category_id => 1, :description => %{<p>Portable PC</p>},
+    Product.create(:name => "Laptop", :category_id => 1, :description => %{Portable PC},
                                       :image_url => '../images/products/1.jpg')
-    Product.create(:name => "Desktop", :category_id => 1, :description => %{<p>Traditional PC</p>},
+    Product.create(:name => "Desktop", :category_id => 1, :description => %{Traditional PC},
                                       :image_url => '../images/products/2.gif')
-    Product.create(:name => "Netbook", :category_id => 1, :description => %{<p>Utra-Portable PC</p>},
+    Product.create(:name => "Netbook", :category_id => 1, :description => %{Utra-Portable PC},
                                       :image_url => '../images/products/3.jpg')
-    Product.create(:name => "Tablet", :category_id => 1, :description => %{<p>Portable PC with touch screen</p>},
+    Product.create(:name => "Tablet", :category_id => 1, :description => %{Portable PC with touch screen},
                                       :image_url => '../images/products/4.gif')
-    Product.create(:name => "All-in-one PC", :category_id => 1, :description => %{<p>One block PC</p>},
+    Product.create(:name => "All-in-one PC", :category_id => 1, :description => %{One block PC},
                                       :image_url => '../images/products/5.gif')
       
   end

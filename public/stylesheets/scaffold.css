@@ -83,12 +83,12 @@ h1 {
 }
 
 #product-list .list-image {
-  width:        60px;
-  height:       70px;
+  width:        64px;
+  height:       64px;
 }
 
 #product-list .list-description {
-  width:        60%;
+  min-width:        300px;
 }
 
 #product-list .list-description dl {
@@ -113,10 +113,26 @@ h1 {
 
 #product-list .list-line-even {
   background:   #e0f8f8;
+  float: left;
+  width: 50%;
+}
+
+#product-list .list-line-even-right {
+  background:   #e0f8f8;
+  float: right;
+  width: 50%;
 }
 
 #product-list .list-line-odd {
   background:   #f8b0f8;
+  float: left;
+  width: 50%;
+}
+
+#product-list .list-line-odd-right {
+  background:   #f8b0f8;
+  float: right;
+  width: 50%;
 }
 
 /* START:mainlayout */

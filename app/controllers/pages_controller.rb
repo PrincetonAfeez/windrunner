@@ -10,5 +10,9 @@ class PagesController < ApplicationController
 
   def settings
   end
+  
+  def help
+    
+  end
 
 end

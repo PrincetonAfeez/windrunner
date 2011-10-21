@@ -47,8 +47,10 @@ ActionController::Routing::Routes.draw do |map|
   
   # longph routes
   map.contact '/contact', :controller => 'pages', :action => 'contact'
+  #map.list '/products', :controller => 'products', :action => 'index'
   map.about   '/about',   :controller => 'pages', :action => 'about'
   map.help    '/help',    :controller => 'pages', :action => 'help'
-  map.settings '/settings', :controller => 'pages', :action => 'setting'
+  map.settings '/settings', :controller => 'pages', :action => 'settings'
+  map.store '/store', :controller => 'store', :action => 'index'
   
 end
