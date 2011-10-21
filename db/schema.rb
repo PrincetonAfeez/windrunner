@@ -9,7 +9,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111021043644) do
+ActiveRecord::Schema.define(:version => 20111021140257) do
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "product_id",                                :null => false
+    t.integer  "order_id",                                  :null => false
+    t.integer  "quantity",                                  :null => false
+    t.decimal  "total_price", :precision => 8, :scale => 2, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "receiver"
+    t.string   "email"
+    t.string   "status"
+    t.string   "pay_type"
+    t.string   "creditcard"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", :force => true do |t|
     t.string   "name"

@@ -40,16 +40,16 @@
       </div>
 
       <div id="main">
-        <%# if flash[:notice] -%>
-          <!--#*<div id="notice"><%= flash[:notice] %></div>%>-->
-        <%# end -%>
+        <% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div>
+        <% end -%>
 
         <%= yield :layout %>
       </div>
     </div>
 <%# *bottom section %>
     <div id="banner_bottom">
-      <%= image_tag("/images/unused/logo.png", :width => 24, :height => 24 ) %>
+      <%#= image_tag("/images/unused/logo.png", :width => 24, :height => 24 ) %>
       Current time is <%= Time.now %>
     </div>
   </body>

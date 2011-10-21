@@ -37,13 +37,13 @@ Cart:
   -- has_many :items
   -- belongs to :order
   
-Item:
+Line_item:
   -- belongs to :cart
   product_id: number
-  cart_id: number
+  order_id: number
   price: number
   quantity: number
-  total: number
+  total_price: number
 
 Order:
   -- belongs to :user
@@ -53,5 +53,5 @@ Order:
   receiver: string
   address: text
   status: string
-  payment: string
+  pay_type: string
   credit_card: string
