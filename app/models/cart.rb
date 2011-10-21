@@ -39,4 +39,13 @@ class Cart
     @items.sum {|item| item.cost}
   end
   
+  ######################################################
+  # -- Output: total items of cart
+  # LongPH - Oct 21st, 2011
+  #    create
+  ######################################################
+  def total_items
+    @items.sum { |item| item.quantity }
+  end
+
 end

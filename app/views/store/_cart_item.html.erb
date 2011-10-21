@@ -1,0 +1,19 @@
+<!--
+######################################################
+# LongPH - Oct 20th, 2011
+#    create file
+# LongPH - Oct 21st, 2011
+#    add errors message
+######################################################
+-->
+
+<tr><% if cart_item == @current_item %>
+  <tr id="current_item">
+  <% else %>
+  <tr>
+  <% end %>
+  <td><%= cart_item.quantity %>&times;</td>
+  <td><%=h cart_item.name %></td>
+  <td class="item-price"><%= number_to_currency(cart_item.cost) %></td>
+</tr>
+

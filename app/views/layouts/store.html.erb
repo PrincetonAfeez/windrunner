@@ -33,16 +33,17 @@
         <br />
         <br />
         <br />
-        <div id="cart">
-          <%= render(:partial => "cart", :object => @cart) %>
-        </div>
+        <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+          <%= render(:partial => "cart" , :object => @cart) %>
+        <% end %>
+
       </div>
-      
+
       <div id="main">
-        <% if flash[:notice] -%>
-          <div id="notice"><%= flash[:notice] %></div>
-        <% end -%>
-          
+        <%# if flash[:notice] -%>
+          <!--#*<div id="notice"><%= flash[:notice] %></div>%>-->
+        <%# end -%>
+
         <%= yield :layout %>
       </div>
     </div>
