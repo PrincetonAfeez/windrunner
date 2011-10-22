@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :orders
 
   map.resources :products
+  
+  map.resources :info
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -58,5 +60,6 @@ ActionController::Routing::Routes.draw do |map|
   map.help    '/help',    :controller => 'pages', :action => 'help'
   map.settings '/settings', :controller => 'pages', :action => 'settings'
   map.store '/store', :controller => 'store', :action => 'index'
+  
   
 end

@@ -12,6 +12,7 @@ class Product < ActiveRecord::Base
   validates_numericality_of :price
 
   # relations
+  has_many :orders, :through => :line_items
   has_many :line_items
 
   # namescopes
