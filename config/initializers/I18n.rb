@@ -2,21 +2,9 @@
 # LongPH - Oct 22nd, 2011
 #    create file
 ######################################################
-class PagesController < ApplicationController
-  def home
-  end
-
-  def contact
-  end
-
-  def faq
-  end
-
-  def settings
-  end
-  
-  def help
-    
-  end
-
-end
+I18n.default_locale = 'en'
+LOCALES_DIRECTORY = "#{RAILS_ROOT}/config/locales/"
+LANGUAGES = {
+  'English' => 'en' ,
+  "Vietnamese" => 'vi'
+}

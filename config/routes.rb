@@ -1,3 +1,7 @@
+######################################################
+# LongPH - Oct 20th, 2011
+#    create file
+######################################################
 ActionController::Routing::Routes.draw do |map|
   map.resources :users
 

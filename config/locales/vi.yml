@@ -1,29 +1,29 @@
-# Sample localization file for English. Add more files in this directory for other locales.
+# Sample localization file for Vietnamese. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:    
+vi:    
   label:
     layout:
-      title: "Welcome to WindRunner Shop"
-      home: "Home"
-      store: "Store"
-      orders: "Orders"
-      products: "Products"
-      users: "Users"
-      logout: "Logout"
-      settings: "Settings"
-      contacts: "Contacts"
-      help: "Help"
-      about: "About"
+      title: "Chao mung ban den voi cua hang WindRunner"
+      home: "Trang chu"
+      store: "Cua hang"
+      orders: "Danh sach hoa don"
+      products: "Danh sach san pham"
+      users: "Danh sach nguoi dung"
+      logout: "Dang xuat"
+      settings: "Cai dat"
+      contacts: "Lien he"
+      help: "Tro giup"
+      about: "Ve cua hang"
   msg:
-    time: "Current time now is "
+    time: "Bay gio la "
   number:
     currency:
       format:
-        unit: "$US"
+        unit: "VND"
         precision: 2
-        separator: ","
-        delimiter: "."
+        separator: "."
+        delimiter: ","
         format: "%n&nbsp;%u"
   activerecord:
     attributes:

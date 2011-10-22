@@ -17,28 +17,37 @@
   <body id="store">
 <%# *top section %>
     <div id="banner">
+
+      <!-- languages feature-->
+      <% form_tag '', :method => 'GET', :class => 'locale' do %>
+        <%= select_tag 'locale', options_for_select(LANGUAGES, I18n.locale),
+          :onchange => 'this.form.submit()' %>
+        <%= submit_tag 'submit' %>
+        <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
+      <% end %>
+
       <%= image_tag("/images/unused/logo.png", :width => 48, :height => 48 ) %>
-      <%= @page_title || "Welcome to WindRunner shop" %>
+      <%= @page_title || I18n.t('label.layout.title') %>
     </div>
 <%# *main section %>
     <div id="columns">
       <div id="side">
-        <%= link_to "Home", root_path %><br />
-        <%= link_to "Store", store_path %><br />
+        <%= link_to I18n.t('label.layout.home'), root_path %><br />
+        <%= link_to I18n.t('label.layout.store'), store_path %><br />
 
         <% if session[:user_id] %>
           <br />
-          <%= link_to 'Orders', :controller => 'orders' %><br />
-          <%= link_to 'Products', :controller => 'products' %><br />
-          <%= link_to 'Users', :controller => 'users' %><br />
+          <%= link_to I18n.t('label.layout.orders'), :controller => 'orders' %><br />
+          <%= link_to I18n.t('label.layout.products'), :controller => 'products' %><br />
+          <%= link_to I18n.t('label.layout.users'), :controller => 'users' %><br />
           <br />
-          <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %><br />
+          <%= link_to I18n.t('label.layout.logout'), :controller => 'admin', :action => 'logout' %><br />
         <% end %>
 
-        <%= link_to "Settings", settings_path %><br />
-        <%= link_to "Contact", contact_path %><br />
-        <%= link_to "Help", help_path %><br />
-        <%= link_to "About", about_path %><br />
+        <%= link_to I18n.t('label.layout.settings'), settings_path %><br />
+        <%= link_to I18n.t('label.layout.contacts'), contact_path %><br />
+        <%= link_to I18n.t('label.layout.help'), help_path %><br />
+        <%= link_to I18n.t('label.layout.about'), about_path %><br />
         <br />
         <br />
         <br />
@@ -61,7 +70,7 @@
 <%# *bottom section %>
     <div id="banner_bottom">
 <%#= image_tag("/images/unused/logo.png", :width => 24, :height => 24 ) %>
-      Current time is <%= Time.now %>
+      <%=  I18n.t('msg.time') + Time.now.to_s %>
     </div>
   </body>
 </html>
