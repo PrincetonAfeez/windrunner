@@ -6,7 +6,8 @@
 User
   -- has many :orders
   username: string, unique
-  password: string
+  hash_password: string
+  salt: string
   first_name: string
   last_name: string
   address: text
@@ -14,6 +15,7 @@ User
   state: string
   country: string
   membership: string
+  status: string
 
 Product:
   -- belongs to :category

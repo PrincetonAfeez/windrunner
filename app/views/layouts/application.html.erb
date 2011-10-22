@@ -26,6 +26,7 @@
         <%= link_to "Home", root_path %><br />
         <%= link_to "Store", store_path %><br />        
         <%= link_to "Products", products_path %><br />
+        <%= link_to "Users", users_path %><br />
         <%= link_to "Settings", settings_path %><br />
         <%= link_to "Contact", contact_path %><br />
         <%= link_to "Help", help_path %><br />
@@ -33,8 +34,10 @@
         <br />
         <br />
         <br />
-        <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
-          <%= render(:partial => "cart" , :object => @cart) %>
+        <% if !@cart.nil? %>
+          <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+            <%= render(:partial => "cart" , :object => @cart) %>
+          <% end %>
         <% end %>
 
       </div>
@@ -49,7 +52,7 @@
     </div>
 <%# *bottom section %>
     <div id="banner_bottom">
-      <%#= image_tag("/images/unused/logo.png", :width => 24, :height => 24 ) %>
+<%#= image_tag("/images/unused/logo.png", :width => 24, :height => 24 ) %>
       Current time is <%= Time.now %>
     </div>
   </body>
