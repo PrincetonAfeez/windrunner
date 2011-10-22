@@ -4,6 +4,7 @@
 ######################################################
 class StoreController < ApplicationController
   # preprocessor
+  before_filter :find_cart, :except => :empty_cart
   
   ######################################################
   # -- Output: all valid products to be sold
@@ -12,7 +13,6 @@ class StoreController < ApplicationController
   ######################################################
   def index
     @products = Product.find_products_for_sale
-    @cart = find_cart
   end
 
   ######################################################
@@ -21,7 +21,7 @@ class StoreController < ApplicationController
   #    create
   ######################################################
   def find_cart
-    session[:cart] ||= Cart.new
+    @cart = (session[:cart] ||= Cart.new)
   end
   
   ######################################################

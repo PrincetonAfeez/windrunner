@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   #    create
   ######################################################
   def self.authenticate(name, password)
-    user = self.find_by_name(name)
+    user = self.find_by_username(name)
     if user
       expected_password = encrypted_password(password, user.salt)
       if user.hashed_password != expected_password
@@ -78,6 +78,17 @@ class User < ActiveRecord::Base
   ######################################################
   def self.hashed_password(password)
     Digest::SHA1.hexdigest(password)
+  end
+
+  ######################################################
+  # -- Output: raise an error and cause database auto rollback
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
+  def after_destroy
+    if User.count.zero?
+      raise "Can't delete last user"
+    end
   end
 
   private
