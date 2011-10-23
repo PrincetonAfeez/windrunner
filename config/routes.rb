@@ -64,6 +64,7 @@ ActionController::Routing::Routes.draw do |map|
   map.help    '/help',    :controller => 'pages', :action => 'help'
   map.settings '/settings', :controller => 'pages', :action => 'settings'
   map.store '/store', :controller => 'store', :action => 'index'
+  map.register '/register', :controller => 'users', :action => 'new'
   
   
 end

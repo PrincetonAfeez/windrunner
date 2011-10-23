@@ -7,7 +7,7 @@
 ######################################################
 class ApplicationController < ActionController::Base
   
-  # preprocessor
+  # preprocessor[]
   before_filter :authorize, :except => :login
   before_filter :set_locale
   
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     unless User.find_by_id(session[:user_id]) or User.count == 0
       session[:original_uri] = request.request_uri
       flash[:notice] = "Please log in." 
-      redirect_to(:controller=>"login", :action=>"login")
+      redirect_to(:controller=>"admin", :action=>"login")
     end
     if User.count == 0 
       if request.path_parameters[:action]=="add_user" and request.path_parameters[:controller]=="login" 
