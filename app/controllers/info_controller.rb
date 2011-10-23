@@ -5,6 +5,7 @@
 class InfoController < ApplicationController
   
   ######################################################
+  # -- Output: redirect to product-buyers page
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -14,10 +15,10 @@ class InfoController < ApplicationController
     respond_to do |format|
       
       # use html view
-      #format.html
+      format.html
       
       # use atom builder
-      format.atom { render :layout => false }
+      #format.atom { render :layout => false }
       
       # use json
       #format.json { render :layout => false ,

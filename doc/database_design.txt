@@ -4,7 +4,7 @@
 ######################################################
 
 User
-  -- has many :orders
+  -- has_many :orders
   username: string, unique
   hash_password: string
   salt: string
@@ -18,7 +18,8 @@ User
   status: string
 
 Product:
-  -- belongs to :category
+  -- belongs_to :category
+  -- has_many :orders, :through => :line_items
   category_id: number
   name: string, unique
   description: text
@@ -30,17 +31,18 @@ Product:
   quantity: number
   
 Category:
-  -- has many :products
+  -- has_many :products
   name: string, unique
   description: text
   note: text
+  status: string
 
 Cart: 
   -- has_many :items
-  -- belongs to :order
+  -- belongs_to :order
   
 Line_item:
-  -- belongs to :cart
+  -- belongs_to :cart
   product_id: number
   order_id: number
   price: number
@@ -48,7 +50,7 @@ Line_item:
   total_price: number
 
 Order:
-  -- belongs to :user
+  -- belongs_to :user
   -- has one :cart
   user_id: number
   cart_id: number
@@ -57,3 +59,7 @@ Order:
   status: string
   pay_type: string
   credit_card: string
+
+rake annotate_models
+rake app:doc
+rake routes

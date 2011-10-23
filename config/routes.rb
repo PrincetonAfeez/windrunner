@@ -3,6 +3,8 @@
 #    create file
 ######################################################
 ActionController::Routing::Routes.draw do |map|
+  map.resources :categories
+
   map.resources :users
 
   map.resources :line_items
@@ -63,9 +65,8 @@ ActionController::Routing::Routes.draw do |map|
   map.about   '/about',   :controller => 'pages', :action => 'about'
   map.help    '/help',    :controller => 'pages', :action => 'help'
   map.settings '/settings', :controller => 'pages', :action => 'settings'
-  map.store '/store', :controller => 'store', :action => 'index'
+  map.store '/store', :controller => 'category', :action => 'index'
   map.register '/register', :controller => 'users', :action => 'new'
-  
-  
+  map.index_sub '/category/index_sub/:id', :controller => 'categories', :action => 'index_sub'
   
 end

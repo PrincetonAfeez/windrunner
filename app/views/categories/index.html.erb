@@ -1,0 +1,72 @@
+<!--
+######################################################
+# LongPH - Oct 23rd, 2011
+#    create file
+######################################################
+-->
+<h1>Listing categories</h1>
+
+<% if session[:membership] && session[:membership] == "Admin" %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Parent id</th>
+    </tr>
+
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%=h category.id %></td>
+        <td><%= link_to category.name, :controller => :category, 
+            :action => :index_sub, 
+            :id => category.id %></td>
+        <td><%=h category.description %></td>
+        <% if category.parent_id %>
+          <td><%=h category.parent_id %></td>
+        <% else %>
+          <td><%=h 0 %></td>
+        <% end %>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+      <% category.children.each do |c| %>
+        <tr>
+          <td><%=h c.id %></td>
+          <td><%= link_to c.name, :controller => :category, 
+              :action => :index_sub, 
+              :id => c.id %></td>
+          <td><%=h c.description %></td>
+          <td><%=h c.parent_id %></td>
+          <td><%= link_to 'Show', c %></td>
+          <td><%= link_to 'Edit', edit_category_path(c) %></td>
+          <td><%= link_to 'Destroy', c, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New category', new_category_path %>
+<% else %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, :controller => :category, 
+            :action => :index_sub, 
+            :id => category.id %></td>
+        <td><%=h category.description %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <br />
+
+<% end %>

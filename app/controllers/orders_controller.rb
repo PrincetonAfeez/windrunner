@@ -4,9 +4,10 @@
 ######################################################
 class OrdersController < ApplicationController
   
+  ######################################################
   # GET /orders
   # GET /orders.xml
-  ######################################################
+  # -- Output: redirect to order page
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -19,9 +20,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  ######################################################
   # GET /orders/1
   # GET /orders/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -34,9 +35,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  ######################################################
   # GET /orders/new
   # GET /orders/new.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -49,8 +50,8 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/1/edit
   ######################################################
+  # GET /orders/1/edit
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -58,9 +59,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  ######################################################
   # POST /orders
   # POST /orders.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -79,9 +80,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  ######################################################
   # PUT /orders/1
   # PUT /orders/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -100,9 +101,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  ######################################################
   # DELETE /orders/1
   # DELETE /orders/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################

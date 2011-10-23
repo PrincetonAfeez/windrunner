@@ -13,8 +13,8 @@
 #  city            :string(255)
 #  state           :string(255)
 #  country         :string(255)
-#  membership      :string(255)
-#  status          :string(255)
+#  membership      :string(255)     default("Normal")
+#  status          :string(255)     default("Active")
 #  created_at      :datetime
 #  updated_at      :datetime
 #
@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   # methods
   
   ######################################################
+  # -- Output: new salt
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -94,6 +95,7 @@ class User < ActiveRecord::Base
   
 
   ######################################################
+  # -- Output: sencrypted password
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -123,6 +125,7 @@ class User < ActiveRecord::Base
 
   private
   ######################################################
+  # -- Output: validate blank password
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################

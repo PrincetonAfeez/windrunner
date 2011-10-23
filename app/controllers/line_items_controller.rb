@@ -4,9 +4,9 @@
 ######################################################
 class LineItemsController < ApplicationController
   
+  ######################################################
   # GET /line_items
   # GET /line_items.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -19,9 +19,9 @@ class LineItemsController < ApplicationController
     end
   end
 
+  ######################################################
   # GET /line_items/1
   # GET /line_items/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -34,9 +34,9 @@ class LineItemsController < ApplicationController
     end
   end
 
+  ######################################################
   # GET /line_items/new
   # GET /line_items/new.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -49,8 +49,8 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # GET /line_items/1/edit
   ######################################################
+  # GET /line_items/1/edit
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -58,9 +58,9 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
   end
 
+  ######################################################
   # POST /line_items
   # POST /line_items.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -79,9 +79,9 @@ class LineItemsController < ApplicationController
     end
   end
 
+  ######################################################
   # PUT /line_items/1
   # PUT /line_items/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -100,9 +100,9 @@ class LineItemsController < ApplicationController
     end
   end
 
+  ######################################################
   # DELETE /line_items/1
   # DELETE /line_items/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################

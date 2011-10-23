@@ -1,0 +1,25 @@
+<!--
+######################################################
+# LongPH - Oct 20th, 2011
+#    create file
+# LongPH - Oct 21st, 2011
+#    add errors message
+######################################################
+-->
+
+<div class="cart-title">Your Current Cart</div>
+<table>
+  <%= render(:partial => "cart_item" , :collection => cart.items) if !cart.nil? %>
+  <tr class="total-line">
+    <td colspan="2">Total</td>
+    <td class="total-cell"><%= number_to_currency(cart.total_price) if !cart.nil? %></td>
+    <td class="total-cell"><%= number_to_currency(0.0) if cart.nil? %></td>
+  </tr>
+</table>
+
+<%= button_to "Checkout" , {:action => 'checkout'}, {:disabled => !@order.nil?} %>
+
+<%#= button_to "Empty cart" , :action => :empty_cart %>
+<% form_remote_tag :url => {:action => 'empty_cart'} do %>
+  <%= submit_tag "Empty cart",  :disabled => !@order.nil? %>
+<% end %>

@@ -4,6 +4,7 @@
 ######################################################
 class StoreController < ApplicationController
   # preprocessor
+  skip_before_filter :authorize, :only => [:index, :add_to_cart, :empty_cart]
   before_filter :find_cart, :except => :empty_cart
   
   ######################################################
@@ -12,6 +13,7 @@ class StoreController < ApplicationController
   #    create
   ######################################################
   def index
+    #@category = Category.find(:all, :conditions => {:status => "Active"})
     @products = Product.find_products_for_sale
   end
 
@@ -100,5 +102,4 @@ class StoreController < ApplicationController
     redirect_to :action => 'index'
   end
   
-
 end

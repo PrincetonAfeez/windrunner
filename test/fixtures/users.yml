@@ -13,8 +13,8 @@
 #  city            :string(255)
 #  state           :string(255)
 #  country         :string(255)
-#  membership      :string(255)
-#  status          :string(255)
+#  membership      :string(255)     default("Normal")
+#  status          :string(255)     default("Active")
 #  created_at      :datetime
 #  updated_at      :datetime
 #

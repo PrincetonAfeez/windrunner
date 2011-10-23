@@ -12,7 +12,7 @@
 #  price         :float           default(0.0)
 #  special_price :float           default(0.0)
 #  member_price  :float           default(0.0)
-#  status        :string(255)     default("active")
+#  status        :string(255)     default("Active")
 #  quantity      :integer(4)      default(0)
 #  category_id   :integer(4)
 #  created_at    :datetime
@@ -41,6 +41,7 @@ class Product < ActiveRecord::Base
   # methods
    
   ######################################################
+  # -- Output: error if validation fail
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -51,6 +52,7 @@ class Product < ActiveRecord::Base
   end
   
   ######################################################
+  # -- Output: products satified conditions
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################

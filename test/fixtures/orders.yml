@@ -8,7 +8,7 @@
 #  address    :text
 #  receiver   :string(255)
 #  email      :string(255)
-#  status     :string(255)
+#  status     :string(255)     default("Active")
 #  pay_type   :string(255)
 #  creditcard :string(255)
 #  created_at :datetime

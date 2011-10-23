@@ -14,8 +14,8 @@ class CreateProducts < ActiveRecord::Migration
       t.float :member_price, :default => 0.0
       t.string :status, :default => "Active"
       t.integer :quantity, :default => 0
-      t.integer :category_id
-
+      t.integer :category_id, :null => false, :options =>
+        "CONSTRAINT fk_category REFERENCES categories(id)"
       t.timestamps
     end
 

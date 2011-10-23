@@ -17,9 +17,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
   protected
   
   ######################################################
+  # -- Output: redirect to login page
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################

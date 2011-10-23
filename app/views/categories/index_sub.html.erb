@@ -1,0 +1,67 @@
+<!--
+######################################################
+# LongPH - Oct 23rd, 2011
+#    create file
+######################################################
+-->
+
+<h1>Listing categories</h1>
+<% if @products.nil? %>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Parent id</th>
+    </tr>
+
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%=h category.id %></td>
+        <td><%= link_to category.name, :controller => :category, 
+            :action => :index_sub, 
+            :id => category.id %></td>
+        <td><%=h category.description %></td>
+        <% if category.parent_id %>
+          <td><%=h category.parent_id %></td>
+        <% else %>
+          <td><%=h 0 %></td>
+        <% end %>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+      <% category.children.each do |c| %>
+        <tr>
+          <td><%=h c.id %></td>
+          <td><%= link_to c.name, :controller => :category, 
+              :action => :index_sub, 
+              :id => c.id %></td>
+          <td><%=h c.description %></td>
+          <td><%=h c.parent_id %></td>
+          <td><%= link_to 'Show', c %></td>
+          <td><%= link_to 'Edit', edit_category_path(c) %></td>
+          <td><%= link_to 'Destroy', c, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+<% else %>
+  <% for product in @products -%>
+    <div class="entry">
+      <%= image_tag product.image_url, :height => '64', :width => '64'%>
+      <h3><%=h product.name %></h3>
+      <%= product.description if !product.description.nil?%>
+      <div class="price-line">
+        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+
+      <%#= button_to "Add to Cart", :action => 'add_to_cart', :id => product %>
+        <% form_remote_tag :url => {:controller => "categories", :action => 'add_to_cart', :id => product} do %>
+          <%= submit_tag "Add to cart" %>
+        <% end %>
+
+      </div>
+    </div>
+  <% end %>
+<% end %>

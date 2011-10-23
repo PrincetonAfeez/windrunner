@@ -6,9 +6,9 @@ class ProductsController < ApplicationController
   # preprocessor
   before_filter :set_description_default
   
+  ######################################################
   # GET /products
   # GET /products.xml
-  ######################################################
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -21,9 +21,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  ######################################################
   # GET /products/1
   # GET /products/1.xml
-  ######################################################
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -36,9 +36,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  ######################################################
   # GET /products/new
   # GET /products/new.xml
-  ######################################################
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -51,8 +51,8 @@ class ProductsController < ApplicationController
     end
   end
 
+  ######################################################
   # GET /products/1/edit
- ######################################################
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -60,9 +60,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  ######################################################
   # POST /products
   # POST /products.xml
-  ######################################################
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -81,9 +81,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  ######################################################
   # PUT /products/1
   # PUT /products/1.xml
-  ######################################################
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -102,9 +102,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  ######################################################
   # DELETE /products/1
   # DELETE /products/1.xml
-  ######################################################
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
@@ -119,6 +119,7 @@ class ProductsController < ApplicationController
   end
   
   ######################################################
+  # -- Output: set default description to all products
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################

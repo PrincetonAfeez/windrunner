@@ -16,6 +16,8 @@ en:
       help: "Help"
       about: "About"
       edit: "Account Info"
+      shop: "Shop"
+      sale_off: "Sale-Off"
   msg:
     time: "Current time now is "
   number:

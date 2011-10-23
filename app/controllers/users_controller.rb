@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   # preprocessor
   skip_before_filter :authorize, :only => [:new, :create]
   
+  ######################################################
   # GET /users
   # GET /users.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -20,9 +20,9 @@ class UsersController < ApplicationController
     end
   end
   
+  ######################################################
   # GET /users/1
   # GET /users/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -34,9 +34,9 @@ class UsersController < ApplicationController
     end
   end
   
+  ######################################################
   # GET /users/new
   # GET /users/new.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -48,8 +48,8 @@ class UsersController < ApplicationController
     end
   end
   
-  # GET /users/1/edit
   ######################################################
+  # GET /users/1/edit
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -57,9 +57,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  ######################################################
   # POST /users
   # POST /users.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -79,9 +79,9 @@ class UsersController < ApplicationController
     end
   end
   
+  ######################################################
   # PUT /users/1
   # PUT /users/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -100,9 +100,9 @@ class UsersController < ApplicationController
     end
   end
   
+  ######################################################
   # DELETE /users/1
   # DELETE /users/1.xml
-  ######################################################
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################

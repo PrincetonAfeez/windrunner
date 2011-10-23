@@ -5,6 +5,7 @@
 class AdminController < ApplicationController
   
   ######################################################
+  # -- Output: authorize user
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
@@ -24,16 +25,19 @@ class AdminController < ApplicationController
   end
 
   ######################################################
+  # -- Output: redirect to login page
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################
   def logout
     session[:user_id] = nil
+    session[:membership] = nil
     flash[:notice] = "Logged out"
     redirect_to(:action => "login" )
   end
 
   ######################################################
+  # -- Output: return the total of Order
   # LongPH - Oct 22nd, 2011
   #    create
   ######################################################

@@ -17,7 +17,7 @@ class SayController < ApplicationController
   #   created
   ######################################################
   def goodbye
-    
+    render(:text => "Goodbye!!!")
   end
   
   ######################################################
