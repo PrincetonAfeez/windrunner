@@ -38,8 +38,10 @@
         <% if session[:user_id] %>
           <br />
           <%= link_to I18n.t('label.layout.orders'), :controller => 'orders' %><br />
-          <%= link_to I18n.t('label.layout.products'), :controller => 'products' %><br />
-          <%= link_to I18n.t('label.layout.users'), :controller => 'users' %><br />
+          <% if session[:membership] == "Admin"%>
+            <%= link_to I18n.t('label.layout.products'), :controller => 'products' %><br />
+            <%= link_to I18n.t('label.layout.users'), :controller => 'users' %><br />
+          <% end %>
           <br />
           <%= link_to I18n.t('label.layout.logout'), :controller => 'admin', :action => 'logout' %><br />
         <% end %>

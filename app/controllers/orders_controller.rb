@@ -3,8 +3,13 @@
 #    create file
 ######################################################
 class OrdersController < ApplicationController
+  
   # GET /orders
   # GET /orders.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def index
     @orders = Order.all
 
@@ -16,6 +21,10 @@ class OrdersController < ApplicationController
 
   # GET /orders/1
   # GET /orders/1.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def show
     @order = Order.find(params[:id])
 
@@ -27,6 +36,10 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   # GET /orders/new.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def new
     @order = Order.new
 
@@ -37,12 +50,20 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/1/edit
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def edit
     @order = Order.find(params[:id])
   end
 
   # POST /orders
   # POST /orders.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def create
     @order = Order.new(params[:order])
 
@@ -60,6 +81,10 @@ class OrdersController < ApplicationController
 
   # PUT /orders/1
   # PUT /orders/1.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def update
     @order = Order.find(params[:id])
 
@@ -77,6 +102,10 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1
   # DELETE /orders/1.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def destroy
     @order = Order.find(params[:id])
     @order.destroy

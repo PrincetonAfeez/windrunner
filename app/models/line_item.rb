@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 20111021231652
+#
+# Table name: line_items
+#
+#  id          :integer(4)      not null, primary key
+#  product_id  :integer(4)      not null
+#  order_id    :integer(4)      not null
+#  quantity    :integer(4)      not null
+#  total_price :decimal(8, 2)   not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 ######################################################
 # LongPH - Oct 21st, 2011
 #    create file

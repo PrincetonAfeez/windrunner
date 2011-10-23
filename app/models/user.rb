@@ -1,3 +1,24 @@
+# == Schema Information
+# Schema version: 20111021231652
+#
+# Table name: users
+#
+#  id              :integer(4)      not null, primary key
+#  username        :string(255)
+#  hashed_password :string(255)
+#  salt            :string(255)
+#  first_name      :string(255)
+#  last_name       :string(255)
+#  address         :text
+#  city            :string(255)
+#  state           :string(255)
+#  country         :string(255)
+#  membership      :string(255)
+#  status          :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 ######################################################
 # LongPH - Oct 22nd, 2011
 #    create file
@@ -34,6 +55,15 @@ class User < ActiveRecord::Base
   ######################################################
   def password
     @password
+  end
+
+  ######################################################
+  # -- Output: full name of a user
+  # LongPH - Oct 23rd, 2011
+  #    create
+  ######################################################
+  def full_name
+    self.first_name + " " + self.last_name
   end
 
   ######################################################

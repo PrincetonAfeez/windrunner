@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 20111021231652
+#
+# Table name: orders
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  address    :text
+#  receiver   :string(255)
+#  email      :string(255)
+#  status     :string(255)
+#  pay_type   :string(255)
+#  creditcard :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 ######################################################
 # LongPH - Oct 21st, 2011
 #    create file
@@ -9,8 +26,8 @@ class Order < ActiveRecord::Base
   PAYMENT_TYPES = [
     # Displayed    stored in db
     [ "Check", "check" ],
-    [ "Credit card", "cc" ],
-    [ "Purchase order", "po" ]
+    [ "Credit card", "creditc card" ],
+    [ "Purchase order", "purchase order" ]
   ]
 
   # validations

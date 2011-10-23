@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   #    create
   ######################################################
   def index
-    @users = User.find(:all, :order => :username)
+    @users = User.find(:all, :order => :username, :conditions => ["status != ?", "Deleted"] )
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @users }
@@ -110,7 +110,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     begin
       flash[:notice] = "User #{@user.name} deleted"
-      @user.destroy
+      @user.status = "Deleted"
     rescue Exception => e
       flash[:notice] = e.message
     end

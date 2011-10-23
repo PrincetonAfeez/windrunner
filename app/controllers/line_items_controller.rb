@@ -3,8 +3,13 @@
 #    create file
 ######################################################
 class LineItemsController < ApplicationController
+  
   # GET /line_items
   # GET /line_items.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def index
     @line_items = LineItem.all
 
@@ -16,6 +21,10 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/1
   # GET /line_items/1.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def show
     @line_item = LineItem.find(params[:id])
 
@@ -27,6 +36,10 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/new
   # GET /line_items/new.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def new
     @line_item = LineItem.new
 
@@ -37,12 +50,20 @@ class LineItemsController < ApplicationController
   end
 
   # GET /line_items/1/edit
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def edit
     @line_item = LineItem.find(params[:id])
   end
 
   # POST /line_items
   # POST /line_items.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def create
     @line_item = LineItem.new(params[:line_item])
 
@@ -60,6 +81,10 @@ class LineItemsController < ApplicationController
 
   # PUT /line_items/1
   # PUT /line_items/1.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def update
     @line_item = LineItem.find(params[:id])
 
@@ -77,9 +102,14 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1
   # DELETE /line_items/1.xml
+  ######################################################
+  # LongPH - Oct 22nd, 2011
+  #    create
+  ######################################################
   def destroy
     @line_item = LineItem.find(params[:id])
-    @line_item.destroy
+    #@line_item.destroy
+    @line_item.status = "Deleted"
 
     respond_to do |format|
       format.html { redirect_to(line_items_url) }

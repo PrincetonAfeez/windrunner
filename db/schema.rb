@@ -25,12 +25,14 @@ ActiveRecord::Schema.define(:version => 20111021231652) do
     t.text     "address"
     t.string   "receiver"
     t.string   "email"
-    t.string   "status"
+    t.string   "status",     :default => "Active"
     t.string   "pay_type"
     t.string   "creditcard"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "orders", ["name", "email", "pay_type"], :name => "index_orders_on_name_and_email_and_pay_type"
 
   create_table "products", :force => true do |t|
     t.string   "name"
@@ -41,12 +43,14 @@ ActiveRecord::Schema.define(:version => 20111021231652) do
     t.float    "price",         :default => 0.0
     t.float    "special_price", :default => 0.0
     t.float    "member_price",  :default => 0.0
-    t.string   "status",        :default => "active"
+    t.string   "status",        :default => "Active"
     t.integer  "quantity",      :default => 0
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "products", ["name", "status"], :name => "index_products_on_name_and_status"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -68,10 +72,12 @@ ActiveRecord::Schema.define(:version => 20111021231652) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
-    t.string   "membership"
-    t.string   "status"
+    t.string   "membership",      :default => "Normal"
+    t.string   "status",          :default => "Active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["username", "status", "membership"], :name => "index_users_on_username_and_status_and_membership"
 
 end

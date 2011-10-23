@@ -13,6 +13,7 @@ class AdminController < ApplicationController
       user = User.authenticate(params[:username], params[:password])
       if user
         session[:user_id] = user.id
+        session[:membership] = user.membership
         uri = session[:original_uri]
         session[:original_uri] = nil
         redirect_to(uri || { :action => "index" })

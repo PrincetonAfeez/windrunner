@@ -1,3 +1,24 @@
+# == Schema Information
+# Schema version: 20111021231652
+#
+# Table name: products
+#
+#  id            :integer(4)      not null, primary key
+#  name          :string(255)
+#  unique        :string(255)
+#  description   :text
+#  image_url     :string(255)     default("No image")
+#  cost          :float           default(0.0)
+#  price         :float           default(0.0)
+#  special_price :float           default(0.0)
+#  member_price  :float           default(0.0)
+#  status        :string(255)     default("active")
+#  quantity      :integer(4)      default(0)
+#  category_id   :integer(4)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:

@@ -3,13 +3,21 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Receiver</th>
     <th>Address</th>
+    <th>Email</th>
+    <th>Payment Type</th>
+    <th>Credit Card</th>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
     <td><%=h order.name %></td>
+    <td><%=h order.receiver %></td>
     <td><%=h order.address %></td>
+    <td><%=h order.email %></td>
+    <td><%=h order.pay_type %></td>
+    <td><%=h order.creditcard %></td>
     <td><%= link_to 'Show', order %></td>
     <td><%= link_to 'Edit', edit_order_path(order) %></td>
     <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -19,4 +27,5 @@
 
 <br />
 
-<%= link_to 'New order', new_order_path %>
+<!-- temporarily disable new order function -->
+<%#= link_to 'New order', new_order_path %>

@@ -12,7 +12,7 @@ class CreateProducts < ActiveRecord::Migration
       t.float :price, :default => 0.0
       t.float :special_price, :default => 0.0
       t.float :member_price, :default => 0.0
-      t.string :status, :default => "active"
+      t.string :status, :default => "Active"
       t.integer :quantity, :default => 0
       t.integer :category_id
 
@@ -30,7 +30,10 @@ class CreateProducts < ActiveRecord::Migration
                                       :image_url => '../images/products/4.gif', :price => 8)
     Product.create(:name => "All-in-one PC", :category_id => 1, :description => %{One block PC},
                                       :image_url => '../images/products/5.gif', :price => 9)
-      
+    
+    # add some indexes
+    add_index :products, [:name, :status]
+    
   end
 
   def self.down
