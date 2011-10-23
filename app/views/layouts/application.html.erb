@@ -43,6 +43,8 @@
             <%= link_to I18n.t('label.layout.users'), :controller => 'users' %><br />
           <% end %>
           <br />
+          <%= link_to I18n.t('label.layout.edit'), :controller => 'users', 
+            :action => 'update', :id => session[:user_id] %><br />
           <%= link_to I18n.t('label.layout.logout'), :controller => 'admin', :action => 'logout' %><br />
         <% end %>
 

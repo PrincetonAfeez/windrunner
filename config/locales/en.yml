@@ -15,6 +15,7 @@ en:
       contacts: "Contacts"
       help: "Help"
       about: "About"
+      edit: "Account Info"
   msg:
     time: "Current time now is "
   number:

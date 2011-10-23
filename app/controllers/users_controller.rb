@@ -4,7 +4,7 @@
 ######################################################
 class UsersController < ApplicationController
   # preprocessor
-  skip_before_filter :authorize, :only => :new
+  skip_before_filter :authorize, :only => [:new, :create]
   
   # GET /users
   # GET /users.xml

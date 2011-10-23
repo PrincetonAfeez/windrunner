@@ -67,4 +67,5 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'new'
   
   
+  
 end
