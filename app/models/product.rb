@@ -29,7 +29,7 @@ class Product < ActiveRecord::Base
   # validations
   validates_presence_of :name
   validates_uniqueness_of :name
-  validates_length_of :name, :maximum => 20
+  validates_length_of :name, :maximum => 100
   validates_numericality_of :price
 
   # relations
@@ -52,12 +52,12 @@ class Product < ActiveRecord::Base
   end
   
   ######################################################
-  # -- Output: products satified conditions
+  # -- Output: products to be sold-off
   # LongPH - Oct 20th, 2011
   #    create
   ######################################################
-  def self.find_products_for_sale
-    find(:all)
+  def self.find_products_for_sale_off
+    find(:all, :conditions => ["special_price > 0"])
   end
 
    

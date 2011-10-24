@@ -18,10 +18,10 @@ class CategoriesController < ApplicationController
 	def index
 		if session[:membership] && session[:membership] == "Admin"
 			@categories = Category.find(:all, :conditions => {:parent_id => nil},
-					:include => [ { :children => [ :children, :parent ] }, :parent ])
+        :include => [ { :children => [ :children, :parent ] }, :parent ])
 		else
 			@categories = Category.find(:all, :conditions => {:parent_id => nil},
-					:include => [ { :children => [ :children, :parent ] }, :parent ])
+        :include => [ { :children => [ :children, :parent ] }, :parent ])
 		end
 		#@products = Product.find_products_for_sale
 		respond_to do |format|
@@ -37,8 +37,9 @@ class CategoriesController < ApplicationController
 	######################################################
 	def index_sub
 		category = Category.find_by_id(params[:id])
+    session[:category_id] = params[:id]
 		if category.children.empty? || category.nil?
-		@products = Product.find_products_for_sale
+      @products = Category.find_product(category.id)
 		else
 			@categories = category.children
 		end
@@ -173,7 +174,7 @@ class CategoriesController < ApplicationController
 	rescue ActiveRecord::RecordNotFound
 		logger.error("Attempt to access invalid product #{params[:id]}")
 		redirect_to_index("Invalid product")
-		end
+  end
 
 	######################################################
 	# -- Output: empty cart in session
@@ -199,7 +200,7 @@ class CategoriesController < ApplicationController
 		if @cart.items.empty?
 			redirect_to_index("Your cart is empty" )
 		else
-		@order = Order.new
+      @order = Order.new
 		end
 	end
 

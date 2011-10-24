@@ -4,10 +4,10 @@ class AddSamplesData < ActiveRecord::Migration
   # 1 Laptop: 10 Tablet
   Product.create(:name => "Samsung Galaxy Tab", :description => %{<p>10.1 Wifi 3G<p>}, :category_id => 10, :image_url => '../images/heroes/001.gif', :price => 13290000)
   Product.create(:name => "Acer Iconia Tab", :description => %{<p>A500 16GB Black<p>}, :category_id => 10, :image_url => '../images/heroes/002.gif', :price => 8800000)
-  Product.create(:name => "Asus Eee Pad Transformer", :description => %{<p>TF 101<p>}, :category_id => 10, :image_url => '../images/heroes/003.gif', :price => 9900000)
-  Product.create(:name => "Apple iPad2 16GB", :description => %{<p>16GB Wifi 3G<p>}, :category_id => 10, :image_url => '../images/heroes/004.gif', :price => 15000000)
+  Product.create(:name => "Apple iPad2 16GB", :description => %{<p>16GB Wifi 3G<p>}, :category_id => 10, :image_url => '../images/heroes/004.gif', :price => 15000000, :special_price => 14500000)
   Product.create(:name => "Apple iPad2 32GB", :description => %{<p>32GB Wifi 3G<p>}, :category_id => 10, :image_url => '../images/heroes/005.gif', :price => 17000000)
-
+  Product.create(:name => "Asus Eee Pad Transformer", :description => %{<p>TF 101<p>}, :category_id => 10, :image_url => '../images/heroes/003.gif', :price => 9900000)
+  
  # Product.create(:name => "Eagle", :category_id => 10, :description => %{<p>Sky Master</p>}, :image_url => '../images/products/1.jpg')
       # 1 Laptop: 11 Acer
   # 1 Laptop: 12 Apple
@@ -71,6 +71,6 @@ class AddSamplesData < ActiveRecord::Migration
   end
 
   def self.down
-    #Product.all.each{|p| p.destroy}
+    Product.all.each{|p| p.destroy}
   end
 end

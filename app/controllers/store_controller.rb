@@ -14,7 +14,8 @@ class StoreController < ApplicationController
   ######################################################
   def index
     #@category = Category.find(:all, :conditions => {:status => "Active"})
-    @products = Product.find_products_for_sale
+    @products = Product.find_products_for_sale_off
+    p @products.size
   end
 
   ######################################################

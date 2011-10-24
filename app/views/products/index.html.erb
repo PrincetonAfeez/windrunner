@@ -6,35 +6,39 @@
 -->
 <div id="product-list">
   <h1>Listing products</h1>
-  <table>
-    <% for product in @products %>
+  <% for category in @categories %>
+    <h2 class="legend"><%= "ID = " + category.id.to_s + " - " + category.name %></h2>
+    <% @products = Category.find_product(category.id) %>
+    <table>
+      <% for product in @products %>
 
-      <tr class="<%= cycle('list-line-odd', 'list-line-odd-right', 'list-line-even', 'list-line-even-right') %>">
-        <td>
-          <%= image_tag product.image_url, :class => 'list-image' %>
-        </td>
-        <td class="list-description">
-          <dl>
-            <dt><%=h product.name %></dt>
-            <dd>
-              <% if !product.description.nil? %>
-                <p><%=h truncate(product.description.gsub(/<.*?>/,''),
-                    :length => 80) %></p>
-              <% end %>
-            </dd>
-          </dl>
-        </td>
-        <td class="list-actions">
-          <%= link_to 'Show', product %><br/>
-          <%= link_to 'Edit', edit_product_path(product) %><br/>
-          <%= link_to 'Destroy', product,
-            :confirm => 'Are you sure?',
-            :method => :delete %>
-        </td>
-      </tr>
-    <% end %>
+        <tr class="<%= cycle('list-line-odd', 'list-line-odd-right', 'list-line-even', 'list-line-even-right') %>">
+          <td>
+            <%= image_tag product.image_url, :class => 'list-image' %>
+          </td>
+          <td class="list-description">
+            <dl>
+              <dt><%=h product.name %></dt>
+              <dd>
+                <% if !product.description.nil? %>
+                  <p><%=h truncate(product.description.gsub(/<.*?>/,''),
+                      :length => 80) %></p>
+                <% end %>
+              </dd>
+            </dl>
+          </td>
+          <td class="list-actions">
+            <%= link_to 'Show', product %><br/>
+            <%= link_to 'Edit', edit_product_path(product) %><br/>
+            <%= link_to 'Destroy', product,
+              :confirm => 'Are you sure?',
+              :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
 
-  </table>
+    </table>
+  <% end %>
 </div>
 <br />
 <%= link_to 'New product', new_product_path %>

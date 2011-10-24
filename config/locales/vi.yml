@@ -11,6 +11,7 @@ vi:
       products: "Danh sach san pham"
       users: "Danh sach nguoi dung"
       logout: "Dang xuat"
+      login: "Dang nhap"
       settings: "Cai dat"
       contacts: "Lien he"
       help: "Tro giup"
@@ -18,11 +19,12 @@ vi:
       edit: "Thong tin tai khoan"
   msg:
     time: "Bay gio la "
+    sale_off: "Danh sach hang khuyen mai:"
   number:
     currency:
       format:
         unit: "VND"
-        precision: 2
+        precision: 0
         separator: "."
         delimiter: ","
         format: "%n&nbsp;%u"

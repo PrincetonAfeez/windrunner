@@ -17,7 +17,6 @@
   <body id="store">
 <%# *top section %>
     <div id="banner">
-
       <!-- languages feature-->
       <% form_tag '', :method => 'GET', :class => 'locale' do %>
         <%= select_tag 'locale', options_for_select(LANGUAGES, I18n.locale),
@@ -25,7 +24,19 @@
         <%= submit_tag 'submit' %>
         <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
       <% end %>
-
+      <% if session[:user_id] %>
+        <div style="color: white;font-size: small;float:right;padding-right:10px">
+          <%= link_to I18n.t('label.layout.logout'), :controller => 'admin', :action => 'logout' %><br />
+        </div>
+        <div style="color: white;font-size: small;float:right;padding-right:10px">
+          <%= link_to I18n.t('label.layout.edit'), :controller => 'users', 
+            :action => 'update', :id => session[:user_id] %><br />
+        </div>
+      <% else %>
+        <div style="color: white;font-size: small;float:right;padding-right:10px">
+          <%= link_to I18n.t('label.layout.login'), :controller => 'admin', :action => 'login' %><br />
+        </div>
+      <% end %>
       <%= image_tag("/images/unused/logo.png", :width => 48, :height => 48 ) %>
       <%= @page_title || I18n.t('label.layout.title') %>
     </div>
@@ -44,9 +55,6 @@
             <%= link_to I18n.t('label.layout.users'), :controller => 'users' %><br />
           <% end %>
           <br />
-          <%= link_to I18n.t('label.layout.edit'), :controller => 'users', 
-            :action => 'update', :id => session[:user_id] %><br />
-          <%= link_to I18n.t('label.layout.logout'), :controller => 'admin', :action => 'logout' %><br />
         <% end %>
 
         <%= link_to I18n.t('label.layout.settings'), settings_path %><br />
@@ -56,7 +64,7 @@
         <br />
         <br />
         <br />
-       <% if !@cart.nil? %>
+        <% if !@cart.nil? %>
           <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
             <%= render(:partial => "cart" , :object => @cart) %>
           <% end %>

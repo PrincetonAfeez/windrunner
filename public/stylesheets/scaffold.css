@@ -291,7 +291,7 @@ h1 {
   background: #efe;
 }
 
-.depot-form legend {
+.depot-form legend, .legend {
   color: #dfd;
   background: #141;
   font-family: sans-serif;
@@ -362,9 +362,19 @@ h1 {
   list-style: square;
 }
 
+.right_button{
+  color: white;
+  font-size: small;
+  float:right;
+  padding-right:10px;
+}
+
+
 /* START:i18n */
 .locale {
   float:right;
   padding-top: 0.2em
 }
 /* END:i18n */
+
+/* LongPH */

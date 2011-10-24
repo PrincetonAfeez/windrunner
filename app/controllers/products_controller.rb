@@ -13,8 +13,13 @@ class ProductsController < ApplicationController
   #    create
   ######################################################
   def index
-    @products = Product.all
-    
+    @categories = []
+    c_all = Category.find(:all, :include => :products, :order => :id)
+    c_all.each do |c|
+      if c.products.size > 0
+        @categories << c
+      end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @products }

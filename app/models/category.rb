@@ -28,9 +28,9 @@ class Category < ActiveRecord::Base
   # relations
   belongs_to :parent, :class_name => "Category"
   has_many :children, :class_name => "Category",
-                      :foreign_key => "parent_id",
-                      :order => "id",
-                      :dependent => :destroy
+    :foreign_key => "parent_id",
+    :order => "id",
+    :dependent => :destroy
   has_many :products
   
   # namescopes
@@ -38,8 +38,22 @@ class Category < ActiveRecord::Base
   # methods
    
   ######################################################
-  # LongPH - Oct 20th, 2011
-  #    create
-  ######################################################
+	# -- Output: product of a category
+	# LongPH - Oct 24th, 2011
+	#    create
+	######################################################
+	def self.find_product(category_id)
+		Product.find_all_by_category_id(category_id)
+	end
 
+  ######################################################r
+	# -- Output: total products of a category
+	# LongPH - Oct 24th, 2011
+	#    create
+	######################################################
+	def total_product(category_id)
+		Product.find_by_category_id(category_id).size
+	end
+
+  
 end

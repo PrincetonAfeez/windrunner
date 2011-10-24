@@ -11,6 +11,7 @@ en:
       products: "Products"
       users: "Users"
       logout: "Logout"
+      login: "Login"
       settings: "Settings"
       contacts: "Contacts"
       help: "Help"
@@ -20,11 +21,12 @@ en:
       sale_off: "Sale-Off"
   msg:
     time: "Current time now is "
+    sale_off: "Products for sale-off today:"
   number:
     currency:
       format:
-        unit: "$US"
-        precision: 2
+        unit: "VND"
+        precision: 0
         separator: ","
         delimiter: "."
         format: "%n&nbsp;%u"
