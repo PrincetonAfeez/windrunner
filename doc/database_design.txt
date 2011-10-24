@@ -60,6 +60,8 @@ Order:
   pay_type: string
   credit_card: string
 
+ruby script/plugin install http://repo.pragprog.com/svn/Public/plugins/annotate_models/
+
 rake annotate_models
 rake app:doc
 rake routes

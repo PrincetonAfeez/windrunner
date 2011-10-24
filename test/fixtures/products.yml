@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20111021231652
+# Schema version: 20111024084821
 #
 # Table name: products
 #
@@ -14,7 +14,7 @@
 #  member_price  :float           default(0.0)
 #  status        :string(255)     default("Active")
 #  quantity      :integer(4)      default(0)
-#  category_id   :integer(4)
+#  category_id   :integer(4)      not null
 #  created_at    :datetime
 #  updated_at    :datetime
 #

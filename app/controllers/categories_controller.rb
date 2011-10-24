@@ -17,9 +17,11 @@ class CategoriesController < ApplicationController
 	######################################################
 	def index
 		if session[:membership] && session[:membership] == "Admin"
-			@categories = Category.find(:all, :conditions => {:parent_id => nil})
+			@categories = Category.find(:all, :conditions => {:parent_id => nil},
+					:include => [ { :children => [ :children, :parent ] }, :parent ])
 		else
-			@categories = Category.find(:all, :conditions => {:parent_id => nil})
+			@categories = Category.find(:all, :conditions => {:parent_id => nil},
+					:include => [ { :children => [ :children, :parent ] }, :parent ])
 		end
 		#@products = Product.find_products_for_sale
 		respond_to do |format|
@@ -38,7 +40,7 @@ class CategoriesController < ApplicationController
 		if category.children.empty? || category.nil?
 		@products = Product.find_products_for_sale
 		else
-			@categories = Category.find(:all, :conditions => {:parent_id => params[:id]})
+			@categories = category.children
 		end
 		respond_to do |format|
 			format.html # index_sub.html.erb

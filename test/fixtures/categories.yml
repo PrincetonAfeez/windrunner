@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 20111024084821
+#
+# Table name: categories
+#
+#  id          :integer(4)      not null, primary key
+#  name        :string(255)
+#  description :text
+#  parent_id   :integer(4)
+#  status      :string(255)     default("Active")
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:

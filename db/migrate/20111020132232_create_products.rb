@@ -19,18 +19,6 @@ class CreateProducts < ActiveRecord::Migration
       t.timestamps
     end
 
-    # insert some samples
-    Product.create(:name => "Laptop", :category_id => 1, :description => %{Portable PC},
-                                      :image_url => '../images/products/1.jpg', :price => 5)
-    Product.create(:name => "Desktop", :category_id => 1, :description => %{Traditional PC},
-                                      :image_url => '../images/products/2.gif', :price => 6)
-    Product.create(:name => "Netbook", :category_id => 1, :description => %{Utra-Portable PC},
-                                      :image_url => '../images/products/3.jpg', :price => 7)
-    Product.create(:name => "Tablet", :category_id => 1, :description => %{Portable PC with touch screen},
-                                      :image_url => '../images/products/4.gif', :price => 8)
-    Product.create(:name => "All-in-one PC", :category_id => 1, :description => %{One block PC},
-                                      :image_url => '../images/products/5.gif', :price => 9)
-    
     # add some indexes
     add_index :products, [:name, :status]
     
