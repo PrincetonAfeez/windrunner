@@ -28,11 +28,11 @@ class CreateUsers < ActiveRecord::Migration
         :address => "Hocmon", :city => "HCMC", :country => "Vietnam", :membership => "VIP", :password => "123456")
       User.create(:username => "tamttt", :first_name => "Tam", :last_name => "Tran-Thi-Thanh",
         :address => "Hocmon", :city => "HCMC", :country => "Vietnam", :membership => "VIP", :password => "123456")
-      User.create(:username => "thonghq", :first_name => "Thong", :last_name => "huynh-Quoc",
+      User.create(:username => "thonghq", :first_name => "Thong", :last_name => "Huynh-Quoc",
         :address => "Hocmon", :city => "HCMC", :country => "Vietnam", :membership => "Normal", :password => "123456")
       User.create(:username => "huypa", :first_name => "Huy", :last_name => "Phan-Anh",
         :address => "Hocmon", :city => "HCMC", :country => "Vietnam", :membership => "Member", :password => "123456")
-      User.create(:username => "nhanlt", :first_name => "Nhan", :last_name => "Luu-",
+      User.create(:username => "nhanlt", :first_name => "Nhan", :last_name => "Luu-Trong",
         :address => "Hocmon", :city => "HCMC", :country => "Vietnam", :membership => "Member", :password => "123456")
       User.create(:username => "maits", :first_name => "Mai", :last_name => "Tran-Suong",
         :address => "Hocmon", :city => "HCMC", :country => "Vietnam", :membership => "Normal", :password => "123456")

@@ -6,6 +6,10 @@
 #    create file
 ######################################################
 class ApplicationController < ActionController::Base
+  # active scafoold
+  #ActiveScaffold.set_defaults do |conf|
+  # conf.list.results_per_page = 20
+  #end
   
   # preprocessor[]
   before_filter :authorize, :except => :login

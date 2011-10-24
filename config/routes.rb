@@ -5,15 +5,15 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :categories
 
-  map.resources :users
+  map.resources :users, :active_scaffold => true
 
   map.resources :line_items
 
-  map.resources :orders
+  map.resources :orders, :active_scaffold => true
 
   map.resources :products
   
-  map.resources :info
+  map.resources :info, :active_scaffold => true
 
   # The priority is based upon order of creation: first created -> highest priority.
 
