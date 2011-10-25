@@ -20,6 +20,11 @@
 </p>
 
 <p>
+  <b>Category</b>
+  <%=h "ID = " + @product.category_id.to_s + ": " + Category.find(@product.category_id).name %>
+</p>
+
+<p>
   <b>Price:</b>
   <%=h @product.exchange_price %>$
 </p>
