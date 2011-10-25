@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   STATUS = %w(Active Banned Deleted Pending)
   
   # attributes
-  file_column :filename
+  #file_column :filename
   attr_accessor :password
   attr_accessor :password_confirmation
   

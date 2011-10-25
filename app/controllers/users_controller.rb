@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   active_scaffold :users do |conf|
     conf.list.label = 'All Users'
     conf.columns = [:membership, :username, :first_name, :last_name, :status,
-      :sex, :address, :city, :country, :created_at, :updated_at, :filename
+      :sex, :address, :city, :country, :created_at, :updated_at#, :filename
       ]
     conf.list.sorting = [{:membership => :ASC}, {:username => :ASC}]
     #conf.list.columns.exclude :salt, :hashed_password
