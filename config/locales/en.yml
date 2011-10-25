@@ -25,7 +25,7 @@ en:
   number:
     currency:
       format:
-        unit: "VND"
+        unit: "$US"
         precision: 0
         separator: ","
         delimiter: "."

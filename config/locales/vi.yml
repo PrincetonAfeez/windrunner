@@ -17,6 +17,8 @@ vi:
       help: "Tro giup"
       about: "Ve cua hang"
       edit: "Thong tin tai khoan"
+      shop: "Cua hang"
+      sale_off: "Hang khuyen mai"
   msg:
     time: "Bay gio la "
     sale_off: "Danh sach hang khuyen mai:"

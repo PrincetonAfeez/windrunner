@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20111024084821) do
     t.string   "country"
     t.string   "membership",      :default => "Normal"
     t.string   "status",          :default => "Active"
+    t.string   "sex",             :default => "Male"
+    t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

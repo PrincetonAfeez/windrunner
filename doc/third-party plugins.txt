@@ -1,0 +1,19 @@
+# rake commands
+rake annotate_models
+rake app:doc
+rake routes
+
+# import plugins source
+./script/plugin discover
+
+ruby script/plugin install http://repo.pragprog.com/svn/Public/plugins/annotate_models/
+
+?ruby script/plugin install act-as-taggable-on
+
+?ruby script/plugin install calendar-helper
+
+ruby script/plugin install git://github.com/activescaffold/active_scaffold.git -r rails-2.3
+ruby script/plugin install git://github.com/ewildgoose/render_component.git -r rails-2.3
+ruby script/plugin install git://github.com/tvongaza/active_scaffold_list_filters.git
+
+ruby script/plugin install http://filecolumn.googlecode.com/svn/tags/file_column

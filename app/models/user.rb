@@ -25,6 +25,11 @@
 ######################################################
 class User < ActiveRecord::Base
   # preprocessor
+  SEX = %w(Male Female)
+  STATUS = %w(Active Banned Deleted Pending)
+  
+  # attributes
+  file_column :filename
   attr_accessor :password
   attr_accessor :password_confirmation
   
@@ -33,7 +38,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_confirmation_of :password
   validate :password_non_blank
-
+  validates_inclusion_of :sex, :in => SEX
+  
   # relations
 
   # namescopes

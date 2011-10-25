@@ -47,8 +47,8 @@ class Product < ActiveRecord::Base
   ######################################################
   def validate_format_of_image_url
     validates_format_of :image_url, 
-                      :with => %r{\.(gif|jpg|png)$}i,
-                      :message => 'must be a URL for GIF, JPG ' + 'or PNG image.'
+      :with => %r{\.(gif|jpg|png)$}i,
+      :message => 'must be a URL for GIF, JPG ' + 'or PNG image.'
   end
   
   ######################################################
@@ -60,6 +60,22 @@ class Product < ActiveRecord::Base
     find(:all, :conditions => ["special_price > 0"])
   end
 
-   
+  ######################################################
+  # -- Output: add a virtual column
+  # LongPH - Oct 25th, 2011
+  #    create
+  ######################################################
+  def exchange_price
+    sprintf( "%0.0f", self.price / $exchange_rate)
+  end
+     
+  ######################################################
+  # -- Output: add a virtual column
+  # LongPH - Oct 25th, 2011
+  #    create
+  ######################################################
+  def exchange_special_price
+    sprintf( "%0.0f", self.special_price / $exchange_rate)
+  end
     
 end

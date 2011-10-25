@@ -8,14 +8,15 @@ class StoreController < ApplicationController
   before_filter :find_cart, :except => :empty_cart
   
   ######################################################
-  # -- Output: all valid products to be sold
+  # -- Output: all sale-off products
   # LongPH - Oct 20th, 2011
   #    create
+  # LongPH - Oct 24th, 2011
+  #    change to sale-off products
   ######################################################
   def index
     #@category = Category.find(:all, :conditions => {:status => "Active"})
     @products = Product.find_products_for_sale_off
-    p @products.size
   end
 
   ######################################################

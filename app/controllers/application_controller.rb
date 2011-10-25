@@ -7,13 +7,16 @@
 ######################################################
 class ApplicationController < ActionController::Base
   # active scafoold
-  #ActiveScaffold.set_defaults do |conf|
-  # conf.list.results_per_page = 20
-  #end
+  ActiveScaffold.set_defaults do |conf|
+    #conf.list.results_per_page = 20
+    conf.actions.add :list_filter
+  end
+  
   
   # preprocessor[]
   before_filter :authorize, :except => :login
   before_filter :set_locale
+  before_filter :set_exchange
   
   helper :all # include all helpers, all the time
   protect_from_forgery :secret => '760223299f1b8939d906c357458c0144ba24c87c6606f841a17991e26777f1c9229d4e7e9d706dd84295258a8e4f1dfd21422a8045a2b26572a3692445b3fb6f'
@@ -65,4 +68,21 @@ class ApplicationController < ActionController::Base
     I18n.locale = session[:locale] = I18n.default_locale
   end
 
+  ######################################################
+  # -- Output: set the exchange_rate
+  # LongPH - Oct 25th, 2011
+  #    create
+  ######################################################
+  def set_exchange
+    if session[:locale] == "vi"
+      vnd = 1
+      usd = 1
+    else
+      vnd = 20800
+      usd  = 1
+    end
+    $exchange_rate = vnd/usd
+  end
+  
+  
 end

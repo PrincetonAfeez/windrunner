@@ -5,9 +5,11 @@
 class OrdersController < ApplicationController
   # use active_scaffold
   active_scaffold :orders do |conf|
-    #conf.list.label = 'Orders'
+    conf.list.label = 'All Orders:'
     conf.list.sorting = [{:name => :ASC}, {:receiver => :ASC}, {:created_at => :ASC}]
-    #conf.list.columns.exclude :salt, :hashed_password
+    conf.columns = [:name, :receiver, :email, :status, :pay_type, :credit_card,
+      :line_items, :created_at, :updated_at
+    ]
   end
   
   # preprocessor

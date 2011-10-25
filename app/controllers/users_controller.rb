@@ -4,15 +4,32 @@
 ######################################################
 class UsersController < ApplicationController
   # use active_scaffold
+  #@users_pages, @users = paginate :users, :per_page => 5
   active_scaffold :users do |conf|
-    conf.list.label = 'Users'
-    conf.list.sorting = [{:membership => :ASC}, {:first_name => :ASC}, {:last_name => :ASC}]
-    conf.list.columns.exclude :salt, :hashed_password
-    conf.create.columns.exclude :salt, :hashed_password
-    conf.update.columns.exclude :salt, :hashed_password
-    conf.show.columns.exclude :salt,:hashed_password
+    conf.list.label = 'All Users'
+    conf.columns = [:membership, :username, :first_name, :last_name, :status,
+      :sex, :address, :city, :country, :created_at, :updated_at, :filename
+      ]
+    conf.list.sorting = [{:membership => :ASC}, {:username => :ASC}]
+    #conf.list.columns.exclude :salt, :hashed_password
+    #conf.create.columns.exclude :salt, :hashed_password
+    #conf.update.columns.exclude :salt, :hashed_password
+    #conf.show.columns.exclude :salt,:hashed_password
+    
+    conf.columns[:sex].form_ui = :select
+    conf.columns[:sex].options = {:options => User::SEX.map(&:to_sym)}
+    conf.columns[:status].form_ui = :select
+    conf.columns[:status].options = {:options => User::STATUS.map(&:to_sym)}
+    
     conf.create.columns.add :password
     conf.update.columns.add :password
+    
+    # Filter now work now
+    conf.list_filter.add(:field, :membership, {})
+    
+    columns[:username].description = "-- Username is used for loggging in --"
+    columns[:membership].description = "[-- Admin, VIP, Member, Normal --]"
+    columns[:status].description = "[-- Active, Pending, Deleted, Banned --]"
   end
   
   # preprocessor

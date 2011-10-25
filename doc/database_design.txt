@@ -59,17 +59,3 @@ Order:
   status: string
   pay_type: string
   credit_card: string
-
-# rake commands
-rake annotate_models
-rake app:doc
-rake routes
-
-# import plugins source
-./script/plugin discover
-
-ruby script/plugin install http://repo.pragprog.com/svn/Public/plugins/annotate_models/
-
-ruby script/plugin install act-as-taggable-on
-
-ruby script/plugin install calendar-helper
