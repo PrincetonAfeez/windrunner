@@ -17,3 +17,8 @@ ruby script/plugin install git://github.com/ewildgoose/render_component.git -r r
 ruby script/plugin install git://github.com/tvongaza/active_scaffold_list_filters.git
 
 ruby script/plugin install http://filecolumn.googlecode.com/svn/tags/file_column
+
+heroku accounts:add <your_name>
+heroku db:push mysql://root:mypass@localhost/mydb
+sudo apt-get install libsqlite3-dev
+sudo gem install taps

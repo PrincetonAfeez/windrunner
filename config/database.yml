@@ -47,6 +47,6 @@ production:
   database: windrunner
   pool: 5
   username: root
-  password: #sonata88
+  password: nbuser
   host: localhost
   socket: #/opt/lampp/var/mysql/mysql.sock 
