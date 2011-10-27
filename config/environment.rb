@@ -48,4 +48,26 @@ Rails::Initializer.run do |config|
     :session_key => '_windrunner_session ' ,
     :secret => '760223299f1b8939d906c357458c0144ba24c87c6606f841a17991e26777f1c9229d4e7e9d706dd84295258a8e4f1dfd21422a8045a2b26572a3692445b3fb6f'
   }
+  
+  ## LongPH config
+  ## config action_mailer
+  #choose delivery method
+  config.action_mailer.delivery_method = :smtp
+  # enable/disable email delivery
+  config.action_mailer.perform_deliveries = true
+  # enable/disable email errors saved to log
+  config.action_mailer.raise_delivery_errors = false
+  # set default character set
+  config.action_mailer.default_charset = "utf-8"
+  # smtp server configuration
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :authentication => :plain,
+    :domain => 'furious-mist-6456.heroku.com',
+    :user_name => 'phanhoanglong2610@gmail.com',
+    :password => 'lanphuong2510'
+  }
+
 end

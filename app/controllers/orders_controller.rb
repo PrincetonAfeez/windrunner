@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   active_scaffold :orders do |conf|
     conf.list.label = 'All Orders:'
     conf.list.sorting = [{:name => :ASC}, {:receiver => :ASC}, {:created_at => :ASC}]
-    conf.columns = [:name, :receiver, :email, :status, :pay_type, :credit_card,
+    conf.columns = [:name, :receiver, :email, :status, :pay_type, :creditcard,
       :line_items, :created_at, :updated_at
     ]
   end

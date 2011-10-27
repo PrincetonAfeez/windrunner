@@ -26,7 +26,7 @@ class Order < ActiveRecord::Base
   PAYMENT_TYPES = [
     # Displayed    stored in db
     [ "Check", "check" ],
-    [ "Credit card", "creditc card" ],
+    [ "Credit card", "credit card" ],
     [ "Purchase order", "purchase order" ]
   ]
 
