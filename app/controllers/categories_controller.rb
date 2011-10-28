@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
 	# preprocessor
 	skip_before_filter :authorize, :only => [:index, :index_sub, :add_to_cart, :empty_cart]
 	before_filter :find_cart, :except => :empty_cart
-	
+  
 	helper :all # include all helpers, all the time
 	# GET /categories
 	# GET /categories.xml
@@ -165,7 +165,7 @@ class CategoriesController < ApplicationController
 		product = Product.find(params[:id])
 		@cart = find_cart
 		@current_item = @cart.add_product(product)
-		@current_item.price(1)
+    @current_item.price(1)
 		respond_to do |format|
 			format.js if request.xhr?
 			format.html {redirect_to_index}
@@ -184,7 +184,7 @@ class CategoriesController < ApplicationController
 	def empty_cart
 		session[:cart] = nil
 		#redirect_to_index("Your cart is currently empty")
-		flash[:notice] = "Your cart is currently empty"
+		#flash[:notice] = "Your cart is currently empty"
 		respond_to do |format|
 			format.js
 		end

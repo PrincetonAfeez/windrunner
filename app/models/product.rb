@@ -77,5 +77,15 @@ class Product < ActiveRecord::Base
   def exchange_special_price
     sprintf( "%0.0f", self.special_price / $exchange_rate)
   end
+  
+   
+  ######################################################
+  # -- Output: add a virtual column
+  # LongPH - Oct 28th, 2011
+  #    create
+  ######################################################
+  def exchange_member_price
+    sprintf( "%0.0f", self.member_price / $exchange_rate)
+  end
     
 end

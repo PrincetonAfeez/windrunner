@@ -74,7 +74,7 @@
       <h3><%=h product.name %></h3>
       <%= product.description if !product.description.nil?%>
       <div class="price-line">
-        <span class="price" >Price: <%= number_to_currency(product.price) %></span>
+        <span class="price" >Price: <%= number_to_currency(product.exchange_price) %></span>
         
     <%#= button_to "Add to Cart", :action => 'add_to_cart', :id => product %>
         <% form_remote_tag :url => {:controller => "categories", :action => 'add_to_cart', :id => product} do %>

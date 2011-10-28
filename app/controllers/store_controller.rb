@@ -4,7 +4,7 @@
 ######################################################
 class StoreController < ApplicationController
   # preprocessor
-  skip_before_filter :authorize, :only => [:index, :add_to_cart, :empty_cart]
+  skip_before_filter :authorize, :only => [:index, :add_to_cart, :empty_cart, :checkout]
   before_filter :find_cart, :except => :empty_cart
   
   ######################################################
@@ -37,7 +37,7 @@ class StoreController < ApplicationController
     product = Product.find(params[:id])
     @cart = find_cart
     @current_item = @cart.add_product(product)
-    @current_item.price(1)
+    @current_item.price(2)
     respond_to do |format|
       format.js if request.xhr?
       format.html {redirect_to_index}
@@ -55,7 +55,7 @@ class StoreController < ApplicationController
   def empty_cart
     session[:cart] = nil
     #redirect_to_index("Your cart is currently empty")
-    flash[:notice] = "Your cart is currently empty"
+    #flash[:notice] = "Your cart is currently empty"
     respond_to do |format|
       format.js
     end
@@ -86,8 +86,14 @@ class StoreController < ApplicationController
     @order = Order.new(params[:order])
     @order.add_line_items_from_cart(@cart)
     if @order.save
+      # empty the cart
       session[:cart] = nil
-      redirect_to_index("Thank you for your order" )
+      # send a confirmation email
+      email = OrderMailer.create_sent(@order)
+      email.set_content_type("text/html" )
+      OrderMailer.deliver(email)
+    
+      redirect_to_index (I18n.t('msg.order_successful'))
     else
       render :action => 'checkout'
     end

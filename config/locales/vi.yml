@@ -4,7 +4,7 @@
 vi:    
   label:
     layout:
-      title: "Chao mung ban den voi cua hang WindRunner"
+      title: "Chao mung den voi cua hang WindRunner"
       home: "Trang chu"
       store: "Cua hang"
       orders: "Danh sach hoa don"
@@ -22,6 +22,7 @@ vi:
   msg:
     time: "Bay gio la "
     sale_off: "Danh sach hang khuyen mai:"
+    order_successful: "Thank you for your order. We have just you an email for confirmation. Have a nice day."
   number:
     currency:
       format:

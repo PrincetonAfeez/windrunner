@@ -38,7 +38,19 @@
         <%= form.label :creditcard, "Creditcard:" %>
         <%= form.text_field :creditcard, :size => 20 %>
       </div>
+      
+      <!-- submit button -->
       <%= submit_tag "Place Order" , :class => "submit" %>
+      <!-- cancel button -->
+      <%= link_to 'Back', store_path %>
     </fieldset>
   <% end %>
 </div>
+
+<script type="text/javascrip">
+  var new_path = "";
+  if (document.location.href.search("store") != -1)
+    back_path = store_path;
+  else
+    back_path = catetories_path;
+</script>

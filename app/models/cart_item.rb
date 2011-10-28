@@ -50,12 +50,12 @@ class CartItem
   #    create
   ######################################################
   def price(type)
-    if type ==1
-      cost = @product.price * @quantity
+    if type == 1
+      cost = @product.price * @quantity / $exchange_rate
     elsif type == 2
-      cost = @product.special_price * @quantity
+      cost = @product.special_price * @quantity / $exchange_rate
     elsif type == 3
-      cost = @product.member_price * @quantity
+      cost = @product.member_price * @quantity / $exchange_rate
     end
     @product.cost = cost
     @product.save

@@ -84,5 +84,4 @@ class ApplicationController < ActionController::Base
     $exchange_rate = vnd/usd
   end
   
-  
 end

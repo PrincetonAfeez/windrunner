@@ -22,6 +22,7 @@ en:
   msg:
     time: "Current time now is "
     sale_off: "Products for sale-off today:"
+    order_successful: "Thank you for your order. We have just you an email for confirmation. Have a nice day."
   number:
     currency:
       format:

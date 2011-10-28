@@ -5,6 +5,7 @@
 class ProductsController < ApplicationController
   # preprocessor
   before_filter :set_description_default
+  before_filter :set_exchange
   
   ######################################################
   # GET /products
