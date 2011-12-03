@@ -84,5 +84,14 @@ class ApplicationController < ActionController::Base
     $exchange_rate = vnd/usd
   end
   
+  ######################################################
+  # -- Output: redirect to index page
+  # LongPH - Oct 21st, 2011
+  #    create
+  ######################################################
+  def redirect_to_index(msg = nil)
+    flash[:notice] = msg if msg
+    redirect_to :controller => 'store', :action => 'index'
+  end
   
 end

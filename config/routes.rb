@@ -68,5 +68,6 @@ ActionController::Routing::Routes.draw do |map|
   map.store '/store', :controller => 'category', :action => 'index'
   map.register '/register', :controller => 'users', :action => 'new'
   map.index_sub '/category/index_sub/:id', :controller => 'categories', :action => 'index_sub'
+  map.love '/page', :controller => 'pages', :action => 'love'
   
 end

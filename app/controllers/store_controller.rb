@@ -93,15 +93,5 @@ class StoreController < ApplicationController
     end
   end
 
-  private
-  ######################################################
-  # -- Output: redirect to index page
-  # LongPH - Oct 21st, 2011
-  #    create
-  ######################################################
-  def redirect_to_index(msg = nil)
-    flash[:notice] = msg if msg
-    redirect_to :action => 'index'
-  end
   
 end
